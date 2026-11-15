@@ -9,7 +9,7 @@ public class DungeonArena {
         Material floor = Material.DEEPSLATE_TILES;
         Material wall = Material.OBSIDIAN;
         if (type.equals("lua")) { floor = Material.NETHERRACK; wall = Material.MAGMA_BLOCK; }
-        if (type.equals("bang")) { floor = Material.PACKED_ICE; wall = Material.BLUE_ICE; }
+        if (type.equals("bang")) { floor = Material.BLUE_ICE; wall = Material.BLUE_ICE; }
         if (type.equals("huvo")) { floor = Material.END_STONE; wall = Material.PURPUR_BLOCK; }
         if (type.equals("loi")) { floor = Material.GOLD_BLOCK; wall = Material.LIGHTNING_ROD; }
         int y = 64;
