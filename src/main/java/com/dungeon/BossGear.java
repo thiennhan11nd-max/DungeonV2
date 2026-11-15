@@ -59,7 +59,7 @@ public class BossGear {
         if (type.equals("huvo")) { color = "§5"; name = "KIEM HU VO"; }
         if (type.equals("loi")) { color = "§e"; name = "KIEM LOI THAN"; }
         meta.setDisplayName(color + "§l" + name);
-        meta.setLore(Arrays.asList("§7Kiem cua boss " + type, "§eSat thuong cuc manh", "§8Set: " + type));
+        meta.setLore(Arrays.asList("§7Kiem cua boss " + type, "§e§l+ 25 Sat Thuong", "§aChem boss cuc tham!", "§8Set: " + type));
         meta.setUnbreakable(true);
         meta.addEnchant(Enchantment.SHARPNESS, 8, true);
         meta.addEnchant(Enchantment.LOOTING, 4, true);
@@ -69,6 +69,15 @@ public class BossGear {
         if (type.equals("bang")) meta.addEnchant(Enchantment.KNOCKBACK, 3, true);
         if (type.equals("huvo")) meta.addEnchant(Enchantment.SWEEPING_EDGE, 5, true);
         if (type.equals("loi")) meta.addEnchant(Enchantment.KNOCKBACK, 2, true);
+        AttributeModifier dmg = new AttributeModifier(UUID.randomUUID(), "dungeon_dmg", 25, AttributeModifier.Operation.ADD_NUMBER, EquipmentSlotGroup.HAND);
+        meta.addAttributeModifier(Attribute.ATTACK_DAMAGE, dmg);
+        AttributeModifier spd = new AttributeModifier(UUID.randomUUID(), "dungeon_spd", 1, AttributeModifier.Operation.ADD_NUMBER, EquipmentSlotGroup.HAND);
+        meta.addAttributeModifier(Attribute.ATTACK_SPEED, spd);
+        int cmd = 1;
+        if (type.equals("bang")) cmd = 2;
+        if (type.equals("huvo")) cmd = 3;
+        if (type.equals("loi")) cmd = 4;
+        meta.setCustomModelData(cmd);
         s.setItemMeta(meta);
         return s;
     }
