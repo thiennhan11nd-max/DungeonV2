@@ -40,6 +40,7 @@ public class DungeonPlugin extends JavaPlugin {
         getCommand("boss").setExecutor(new DungeonCommand());
         getCommand("setboss").setExecutor(new DungeonCommand());
         Bukkit.getPluginManager().registerEvents(new DungeonListener(), this);
+        Bukkit.getPluginManager().registerEvents(new SwordEffectListener(), this);
         Bukkit.getPluginManager().registerEvents(new SetBonusListener(), this);
         DungeonCraft.registerRecipes(this);
         for (String t : types) DungeonSpawner.startSpawner(this, t);
