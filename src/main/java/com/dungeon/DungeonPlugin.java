@@ -22,7 +22,14 @@ public class DungeonPlugin extends JavaPlugin {
             World w = Bukkit.createWorld(wc);
             w.setGameRule(GameRule.DO_MOB_SPAWNING, false);
             w.setGameRule(GameRule.DO_DAYLIGHT_CYCLE, false);
-            w.setTime(6000);
+            w.setGameRule(GameRule.MOB_GRIEFING, false);
+            if (t.equals("bang")) {
+                w.setTime(18000);
+                w.setStorm(false);
+                w.setThundering(false);
+            } else {
+                w.setTime(6000);
+            }
             w.setDifficulty(Difficulty.HARD);
             worlds.put(t, w);
             Location center = new Location(w, 0, 65, 0);
